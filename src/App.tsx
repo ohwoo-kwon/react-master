@@ -12,12 +12,12 @@ const Wrapper = styled.div`
   align-items: center;
   background-color: ${(props) => props.theme.backgroundColor};
 `;
-
 function App() {
   return (
     <Wrapper>
-      <Title>Hello</Title>
+      <Title>Title</Title>
     </Wrapper>
   );
 }
+
 export default App;
