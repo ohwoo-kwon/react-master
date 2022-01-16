@@ -29,10 +29,12 @@ const GlobalStyle = createGlobalStyle`
     display: block;
   }
   body {
+    font-weight: 300;
     font-family: 'Source Sans Pro', sans-serif;
     line-height: 1;
     background-color:${(props) => props.theme.bgColor};
     color:${(props) => props.theme.textColor};
+    line-height: 1.2;
   }
   ol, ul {
     list-style: none;
