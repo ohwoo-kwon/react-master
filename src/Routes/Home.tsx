@@ -31,7 +31,7 @@ const Title = styled.h2`
   margin-bottom: 20px; ;
 `;
 const Overview = styled.p`
-  font-size: 30px;
+  font-size: 18px;
   width: 50%;
 `;
 const Slider = styled.div`
@@ -62,6 +62,19 @@ const Box = styled(motion.div)<{ bgPhoto: string }>`
   }
 `;
 
+const Info = styled(motion.div)`
+  padding: 10px;
+  background-color: ${(props) => props.theme.black.lighter};
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  h4 {
+    text-align: center;
+    font-size: 14px;
+  }
+`;
+
 const rowVariants = {
   hidden: {
     x: window.outerWidth + 5,
@@ -79,7 +92,14 @@ const boxVariants = {
   hover: {
     scale: 1.3,
     y: -50,
-    transition: { delay: 0.5, duration: 0.3, type: "tween" },
+    transition: { delay: 0.5, duration: 0.1, type: "tween" },
+  },
+};
+
+const infoVariants = {
+  hover: {
+    opacity: 1,
+    transition: { delay: 0.5, duration: 0.1, type: "tween" },
   },
 };
 
@@ -137,7 +157,11 @@ function Home() {
                       whileHover="hover"
                       transition={{ type: "tween" }}
                       bgPhoto={makeImagePath(movie.backdrop_path, "w500")}
-                    />
+                    >
+                      <Info variants={infoVariants}>
+                        <h4>{movie.title}</h4>
+                      </Info>
+                    </Box>
                   ))}
               </Row>
             </AnimatePresence>
